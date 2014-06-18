@@ -2,8 +2,8 @@
  * @author Yura Susuk yurasusuk@gmail.com
  */
 
-(function (head) {
-    "use strict";
+(head) ->
+
 
     head
         .css([
@@ -32,7 +32,7 @@
             ember: "assets/javascripts/bower_components/ember-data/ember-data.js",
             size: 341000
         })
-        .ready('ALL', function () {
+        .ready('ALL', () ->
             require.config({
                 appDir: '',
                 baseUrl: 'assets/javascripts',
@@ -45,9 +45,9 @@
                     }
                 }
             });
-            require([ 'app'], function (app) {
+            require([ '../../../public/javascripts/app'], (app) ->
                 window.WHAI = app;
-            });
-        });
+            );
+        );
 
-}(window.head));
+window.head;
