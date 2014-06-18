@@ -5,7 +5,7 @@
 (function (define) {
     "use strict";
 
-    define(["QuestionsRoute"], function (QuestionsRoute) {
+    define([], function (QuestionsRoute) {
         var WHAI = Ember.Application.create();
 
         WHAI.Router.map(function () {
@@ -13,7 +13,12 @@
             })
         })
 
-        WHAI.QuestionsRoute = QuestionsRoute;
+        WHAI.QuestionsRoute = Ember.Route.extend({
+          model: function() {
+              var url = "http://localhost:9000/questions";
+              return Ember.$.getJSON(url);
+          }
+        });
 
         return WHAI;
     })
