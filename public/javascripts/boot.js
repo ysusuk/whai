@@ -9,7 +9,8 @@
         .css([
             'http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic',
             'http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800',
-            'assets/javascripts/bower_components/bootstrap/dist/css/bootstrap.min.css'
+            'assets/javascripts/bower_components/bootstrap/dist/css/bootstrap.min.css',
+            'assets/stylesheets/main.css'
         ])
         .js({
             jquery: "assets/javascripts/bower_components/jquery/jquery.js",
