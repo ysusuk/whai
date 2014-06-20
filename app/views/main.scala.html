@@ -30,7 +30,7 @@
   {{#each question in controller}}
     <div class="row">
       <div class="col-xs-1">
-        <button type="button" class="btn btn-sm" {{bind-attr class="question.answer:btn-success:btn-danger"}} {{action 'toggle' question}}>{{question.answer}}</button>
+        <button type="button" {{bind-attr class=":btn question.answer:btn-success:btn-danger"}} {{action 'toggle' question}}>{{question.answer}}</button>
       </div>
       <div class="col-xs-11">{{question.text}}</div>
     </div>
