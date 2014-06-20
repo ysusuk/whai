@@ -8,12 +8,33 @@ do (define) ->
   define [], () ->
     WHAI = Ember.Application.create()
 
-    WHAI.Router.map () -> @resource 'questions', {path: '/'}, () ->
+    WHAI.Router.map () ->
+      @resource 'questions', {path: '/'}, () ->
+
+    WHAI.Question = DS.Model.extend
+      answer: DS.attr('boolean')
+      text: DS.attr('string')
+      toggle: () ->
+        @set('answer', not @get('answer'))
 
     WHAI.QuestionsRoute = Ember.Route.extend
       model: () ->
-        url = "http://localhost:9000/questions"
-        Ember.$.getJSON url
-      
+        @store.find('question')
+      actions:
+        toggle: (question) ->
+          question.toggle()
+
+    WHAI.QuestionsController = Ember.ArrayController.extend
+      yes: (() ->
+        questions = @store.all 'question'
+        width = (questions.filterBy('answer', true).get('length') / questions.get('length')) * 100
+        "width: #{width}%"
+      ).property('@each.answer')
+      no: (() ->
+        questions = @store.all 'question'
+        width = (questions.filterBy('answer', false).get('length') / questions.get('length')) * 100
+        "width: #{width}%"
+      ).property('@each.answer')
+
 
     WHAI
