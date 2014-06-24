@@ -1,18 +1,12 @@
 package controllers
 
-import play.api._
-import play.api.mvc._
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import play.api.libs.functional.syntax._
 import play.api.libs.json._
-import scala.concurrent.Future
-
-import reactivemongo.api._
-
+import play.api.mvc._
 import play.modules.reactivemongo.MongoController
 import play.modules.reactivemongo.json.collection.JSONCollection
-import reactivemongo.bson.BSONObjectID
-import com.google.common.base.Optional
+import reactivemongo.api._
 
 object Questions extends Controller with MongoController {
 
