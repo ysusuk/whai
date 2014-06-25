@@ -74,7 +74,7 @@ var questions = [
 
 // drop questions collection
 db.questions.drop()
-// prepopulate questions collection
+// pre-populate questions collection
 function insert(question) {
     db.questions.insert({
         text: question,
