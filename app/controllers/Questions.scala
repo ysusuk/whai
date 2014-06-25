@@ -8,6 +8,8 @@ import play.modules.reactivemongo.MongoController
 import play.modules.reactivemongo.json.collection.JSONCollection
 import reactivemongo.api._
 
+case class Question(id: String, text: String, answer: Boolean)
+
 object Questions extends Controller with MongoController {
 
   def collection: JSONCollection = db.collection[JSONCollection]("questions")
@@ -32,24 +34,6 @@ object Questions extends Controller with MongoController {
     val cursor: Cursor[Question] = collection.find(Json.obj()).cursor[Question]
 
     cursor.collect[List]().map(questions => Ok(Json.obj("questions" -> questions)));
-
-//    val json = Json.obj(
-//      "questions" -> Json.toJson()
-//    )
-//    Ok(json)
   }
 }
 
-case class Question(id: String, text: String, answer: Boolean)
-
-// case class Question(id: Int, text: String, answer: Boolean)
-
-//object Question {
-//  var questions = Set(
-//    Question(1, "You are almost never late for your appointments?", false),
-//    Question(2, "You like to be engaged in an active and fast-paced job?", false),
-//    Question(3, "You enjoy having a wide circle of acquaintances?", true),
-//    Question(4, "You feel involved when watching TV soaps?", false),
-//    Question(5, "You are usually the first to react to a sudden event, such as the telephone ringing or unexpected question?", false)
-//  )
-//}

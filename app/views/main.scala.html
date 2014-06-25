@@ -14,17 +14,18 @@
 <script type="text/x-handlebars" data-template-name="questions">
 <div class="container">
 
-  <div class="row">
-    <pre>
-      --      -- --    --     --    --
-      ||      || ||    ||     ||    ||
-      ||  ++  || || ++ ||   ||  ||  ||
-        ||  ||   ||    || ||  ++ || ||
-        --  --   --    -- --     -- --
-    </pre>
+  <div class="header row">
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" {{bind-attr style=yes}}>
+        <span class="sr-only">{{yes}}% Yes</span>
+      </div>
+      <div class="progress-bar progress-bar-danger" {{bind-attr style=no}}>
+        <span class="sr-only">{{no}}% No</span>
+      </div>
+    </div>
   </div>
 
-  <div class="row">
+  <div class="content row">
   {{#each question in controller}}
     <div class="row">
       <div class="col-xs-1">
@@ -33,19 +34,6 @@
       <div class="col-xs-11">{{question.text}}</div>
     </div>
   {{/each}}
-  </div>
-
-  <div class="row">
-    <div class="col-xs-offset-1 col-xs-11">
-      <div class="progress">
-        <div class="progress-bar progress-bar-success" {{bind-attr style=yes}}>
-          <span class="sr-only">{{yes}}% Yes</span>
-        </div>
-        <div class="progress-bar progress-bar-danger" {{bind-attr style=no}}>
-          <span class="sr-only">{{no}}% No</span>
-        </div>
-      </div>
-    </div>
   </div>
 
 </div>
