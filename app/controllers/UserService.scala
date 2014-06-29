@@ -4,7 +4,7 @@ import play.api.Application
 import securesocial.core.{Identity, IdentityId, UserServicePlugin}
 import securesocial.core.providers.Token
 
-class UserService(application: Application) extends UserServicePlugin(application) {
+class UserService(application: play.api.Application) extends UserServicePlugin(application) {
   var users: Map[IdentityId, Identity] = Map.empty
 
   override def find(id: IdentityId): Option[Identity] = users get id

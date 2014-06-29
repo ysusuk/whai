@@ -19,7 +19,6 @@ do (define) ->
 #      adapter: 'WHAI.RESTAdapter'
 
 
-
     WHAI.Router.map () ->
       @resource 'questions', {path: '/'}, () ->
 
